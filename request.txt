@@ -1,0 +1,31 @@
+/search
+curl http://localhost:5000/search?query=Noah+Wanitaku
+
+/home
+curl http://localhost:5000/home
+
+/playlist/create
+curl -X POST http://localhost:5000/playlist/create -H "Content-Type: application/json" -d '{
+    "title": "Playlist Baru",
+    "description": "Deskripsi Playlist"
+}'
+
+/playlist/show
+curl http://localhost:5000/playlist/show?playlistId=PLsVupR2PnmdK8ke6IT-iG4zsigm4KR4vL
+
+/playlist/addItems
+curl -X POST http://localhost:5000/playlist/addItems -H "Content-Type: application/json" -d '{
+    "playlistId": "PLsVupR2PnmdK8ke6IT-iG4zsigm4KR4vL",
+    "videoIds": ["UD7XQVRY5K8", "songId1", "songId2"]
+}'
+
+/playlist/deleteItems
+curl -X POST http://localhost:5000/playlist/deleteItems -H "Content-Type: application/json" -d '{
+    "playlistId": "PLsVupR2PnmdK8ke6IT-iG4zsigm4KR4vL",
+    "videoIdsToRemove": [
+        {
+            "videoId": "JGuCa3Ty6R0",
+            "setVideoId": "289F4A46DF0A30D2"
+        }
+    ]
+}'
